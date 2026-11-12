@@ -72,7 +72,12 @@ The tests call every method with several inputs, including edge cases, and check
 1. Find `reverseInPlace(int[] counts)`. It returns nothing: it rearranges the caller's array. It can do that because the parameter is a reference to that same array.
 2. Use two indexes, one from each end. Swap the elements, move both indexes inward, and stop when they meet or cross.
    The enhanced for loop cannot help here, because swapping needs the positions themselves.
-3. Check your loop condition against a one-element array and an empty array. A wrong bound throws `ArrayIndexOutOfBoundsException`, and its message names the index that does not exist.
+
+<details><summary>Hint</summary>
+
+Check your loop condition against a one-element array and an empty array. A wrong bound throws `ArrayIndexOutOfBoundsException`, and its message names the index that does not exist.
+
+</details>
 
 ### Task 3: reorderList
 
@@ -106,10 +111,15 @@ The tests call every method with several inputs, including edge cases, and check
    A negative result means the middle sorts before the target, so the match can only be in the upper half; a positive result means the lower half.
 3. Narrow to the correct half by moving `low` or `high` past the middle. Stop with -1 when `low` passes `high`.
 4. While it is wrong, you see lines such as `Task 7: binaryFindSku(pantry, "milk")`.
-   If the test run hangs, your bounds never close. Make sure each step leaves the middle element out of the range.
 5. Optional: see the halving. Set a breakpoint on the line that looks at the middle element, start the debugger, and watch `low` and `high` close in on `"milk"` in the eight-product pantry.
    It takes three looks instead of seven reads, and that gap grows every time the shelf doubles.
    If your editor cannot start the test in its debugger, debug `main` instead: its `binaryFindSku(skus, "tea")` call shows the same halving.
+
+<details><summary>Hint</summary>
+
+If the test run hangs, your bounds never close. Make sure each step leaves the middle element out of the range.
+
+</details>
 
 ### About the test results
 
