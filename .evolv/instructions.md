@@ -9,16 +9,17 @@ You start with plain arrays, move changing data into an `ArrayList`, index it wi
 1. Open the lab project. The files you edit are in `src/main/java/exercise/`; the checklist below names them.
 2. Select **Run Tests** before you change anything.
 
-   **All 7 tests fail at first. That is expected: the TODOs are not done yet.**
+   **All 7 visible tests fail at first. That is expected: the TODOs are not done yet.**
    Every failure message starts with its task number, such as `Task 1:`.
 3. Work through the checklist below in order. After each task, select **Run Tests** again and read the remaining `Task N:` messages.
-4. **You are finished when all 7 tests pass.** Then select **Submit**.
+4. **You are finished when all 7 visible tests pass.** Then select **Submit**.
+   Submitting also runs held-out tests you can't see.
 
 ```
 OPEN project -> RUN TESTS: 7 fail (expected)
   -> READ the "Task N:" messages -> EDIT the next TODO -> RUN TESTS again
   -> arrays (Tasks 1-2) -> list (3) -> map (4-5) -> search (6-7)
-  -> SUBMIT when all 7 tests pass
+  -> SUBMIT when all 7 visible tests pass
 ```
 
 In words: open the project, run the tests, read which tasks fail, complete one task's TODO, run the tests again, and submit when they all pass.
@@ -36,12 +37,13 @@ All seven tasks are in `src/main/java/exercise/Inventory.java`. Each one is a me
 - [ ] Task 7: `binaryFindSku` (binary search)
 
 A task is done when no failure message starts with its number.
-Edit only `Inventory.java`. The tests in `src/test/java/exercise/` are restored to their original state before your work is graded, so changes to them do not count. Leave the build file `pom.xml` and `expected/test-summary.txt` as they are.
+Edit only `Inventory.java`. The tests in `src/test/java/exercise/` are restored to their original state before your work is graded, so changes to them do not count. Leave the build file `pom.xml` as it is.
 
 ## Task steps
 
 Each method's `TODO` comment says exactly what it must return or change.
-The tests call every method with several inputs, including edge cases, and check only the results.
+Run Tests runs the visible tests. Submit also runs held-out tests you can't see: they try more inputs, including edge cases, so make each method correct for every input its comment describes, not only the ones the visible tests try.
+The tests check only the results.
 
 ### Task 1: totalStock
 
@@ -123,7 +125,18 @@ mvn -q compile
 java -cp target/classes exercise.Inventory
 ```
 
-`expected/test-summary.txt` shows the finished result, including the eight lines the program prints.
+When every task is done, it prints:
+
+```
+Total: 28
+Reversed: 4 3 2 1
+Reorder: [candle, notebook]
+Index size: 5
+Stock of tea: 3
+Stock of soap: 0
+Find pen: 3
+Binary find tea: 4
+```
 
 ## Troubleshooting
 
