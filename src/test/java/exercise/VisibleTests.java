@@ -1,4 +1,4 @@
-package inventory;
+package exercise;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
@@ -17,7 +17,7 @@ import org.junit.jupiter.api.TestMethodOrder;
  * with several inputs, including edge cases, and checks only the results.
  */
 @TestMethodOrder(MethodOrderer.MethodName.class)
-class InventoryTest {
+class VisibleTests {
 
     private static final String[] SKUS = {"candle", "mug", "notebook", "pen", "tea"};
     private static final int[] COUNTS = {2, 9, 0, 14, 3};

@@ -6,7 +6,7 @@ You start with plain arrays, move changing data into an `ArrayList`, index it wi
 
 ## Quick start
 
-1. Open the lab project. The files you edit are in `src/main/java/inventory/`; the checklist below names them.
+1. Open the lab project. The files you edit are in `src/main/java/exercise/`; the checklist below names them.
 2. Select **Run Tests** before you change anything.
 
    **All 7 tests fail at first. That is expected: the TODOs are not done yet.**
@@ -25,7 +25,7 @@ In words: open the project, run the tests, read which tasks fail, complete one t
 
 ## Checklist
 
-All seven tasks are in `src/main/java/inventory/Inventory.java`. Each one is a method with a `TODO` comment.
+All seven tasks are in `src/main/java/exercise/Inventory.java`. Each one is a method with a `TODO` comment.
 
 - [ ] Task 1: `totalStock` (the enhanced for loop)
 - [ ] Task 2: `reverseInPlace` (two indexes on an array)
@@ -36,7 +36,7 @@ All seven tasks are in `src/main/java/inventory/Inventory.java`. Each one is a m
 - [ ] Task 7: `binaryFindSku` (binary search)
 
 A task is done when no failure message starts with its number.
-Edit only `Inventory.java`. The tests in `src/test/java/inventory/` are restored to their original state before your work is graded, so changes to them do not count. Leave the build file `pom.xml` and `expected/test-summary.txt` as they are.
+Edit only `Inventory.java`. The tests in `src/test/java/exercise/` are restored to their original state before your work is graded, so changes to them do not count. Leave the build file `pom.xml` and `expected/test-summary.txt` as they are.
 
 ## Task steps
 
@@ -120,7 +120,7 @@ The tool prints one line per method. In a terminal, from the project folder:
 
 ```
 mvn -q compile
-java -cp target/classes inventory.Inventory
+java -cp target/classes exercise.Inventory
 ```
 
 `expected/test-summary.txt` shows the finished result, including the eight lines the program prints.
