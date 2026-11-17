@@ -10,7 +10,7 @@ import java.util.HashMap;
  * marked TODO, one task at a time; together they become the shop's lookup
  * tool. The visible tests (Run Tests) and the held-out tests (run on Submit)
  * call each method with several inputs, including edge cases, and check only
- * the results. The lab instructions list the steps for every
+ * the results. The lab README lists the steps for every
  * task. main is complete: it prints one line per finished task.
  */
 public class Inventory {
