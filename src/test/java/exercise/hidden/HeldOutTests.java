@@ -11,7 +11,7 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
-/** Held-out tests: graded on submit, never shown to the learner. Edge cases for every task. */
+/** Held-out tests: graded on submit, never shown to the learner. Edge cases for Tasks 1 and 3-7. */
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class HeldOutTests {
 
@@ -24,16 +24,6 @@ class HeldOutTests {
                 () -> assertEquals(7, Inventory.totalStock(new int[] {7}), "Task 1: totalStock({7})"),
                 () -> assertEquals(0, Inventory.totalStock(new int[] {}),
                         "Task 1: totalStock({}), an empty shelf holds nothing"));
-    }
-
-    @Test
-    void task2ReverseInPlaceEdgeCases() {
-        int[] one = {9};
-        Inventory.reverseInPlace(one);
-        assertArrayEquals(new int[] {9}, one, "Task 2: reverseInPlace({9})");
-        int[] empty = {};
-        Inventory.reverseInPlace(empty);
-        assertArrayEquals(new int[] {}, empty, "Task 2: reverseInPlace({})");
     }
 
     @Test

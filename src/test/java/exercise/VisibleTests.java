@@ -40,6 +40,12 @@ class VisibleTests {
         int[] odd = {5, 6, 7};
         Inventory.reverseInPlace(odd);
         assertArrayEquals(new int[] {7, 6, 5}, odd, "Task 2: reverseInPlace({5, 6, 7})");
+        int[] one = {9};
+        Inventory.reverseInPlace(one);
+        assertArrayEquals(new int[] {9}, one, "Task 2: reverseInPlace({9})");
+        int[] empty = {};
+        Inventory.reverseInPlace(empty);
+        assertArrayEquals(new int[] {}, empty, "Task 2: reverseInPlace({})");
     }
 
     @Test
