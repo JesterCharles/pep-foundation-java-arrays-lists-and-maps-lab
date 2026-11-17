@@ -1,15 +1,16 @@
 Expected output when every task is complete
 
-Test command, run in starter/:
-  mvn -q -o test
+Test command: Run Tests, which runs Maven's test phase in the project folder.
+From a terminal, the same check is:
+  mvn -q test
 
-Terminal: no output, and the command exits with status 0.
-Quiet mode (-q) prints only problems, so silence means every test passed.
+Result: all 7 tests pass.
+In a terminal, quiet mode (-q) prints only problems, so no output means every test passed.
 
-Test report, starter/target/surefire-reports/inventory.InventoryTest.txt, begins:
+Test report, target/surefire-reports/inventory.InventoryTest.txt, contains the line:
   Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
 
-Program output, from java -cp target/classes inventory.Inventory run in starter/ after the tests:
+Program output, from java -cp target/classes inventory.Inventory run in the project folder after the tests:
   Total: 28
   Reversed: 4 3 2 1
   Reorder: [candle, notebook]
