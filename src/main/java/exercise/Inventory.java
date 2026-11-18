@@ -1,4 +1,4 @@
-package inventory;
+package exercise;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,22 +8,23 @@ import java.util.HashMap;
  * The shop tracks its products as two parallel arrays: skus[i] names a
  * product and counts[i] says how many are on the shelf. Complete the methods
  * marked TODO, one task at a time; together they become the shop's lookup
- * tool. The public tests call each method with several inputs, including edge
- * cases, and check only the results. The README lists the steps for every
+ * tool. The visible tests (Run Tests) and the held-out tests (run on Submit)
+ * call each method with several inputs, including edge cases, and check only
+ * the results. The lab README lists the steps for every
  * task. main is complete: it prints one line per finished task.
  */
 public class Inventory {
 
     // Task 1 (arrays): the total number of items on the shelf, summed over
     // the whole array with an enhanced for loop. totalStock of {3, 0, 5} is 8.
-    static int totalStock(int[] counts) {
+    public static int totalStock(int[] counts) {
         return -1; // TODO: sum the array with an enhanced for loop
     }
 
     // Task 2 (arrays, two indexes): reverse the array in place, swapping the
     // first and last elements with two indexes that move toward each other.
     // The method returns nothing: it changes the caller's array.
-    static void reverseInPlace(int[] counts) {
+    public static void reverseInPlace(int[] counts) {
         // TODO: swap elements with two indexes until they meet or cross
     }
 
@@ -31,26 +32,26 @@ public class Inventory {
     // into an ArrayList in shelf order. An array cannot grow while you find
     // them; a list can, which is why this method returns one.
     // reorderList({"tea", "mug"}, {2, 9}, 3) is ["tea"].
-    static ArrayList<String> reorderList(String[] skus, int[] counts, int threshold) {
+    public static ArrayList<String> reorderList(String[] skus, int[] counts, int threshold) {
         return null; // TODO: create an ArrayList, add each sku that is low, return it
     }
 
     // Task 4 (HashMap): an index from sku to count, so lookups stop walking
     // the arrays. Put every pair skus[i] -> counts[i] into a HashMap.
-    static HashMap<String, Integer> buildIndex(String[] skus, int[] counts) {
+    public static HashMap<String, Integer> buildIndex(String[] skus, int[] counts) {
         return null; // TODO: create a HashMap and put every pair into it
     }
 
     // Task 5 (HashMap, missing keys): the count for sku in the index, or 0
     // when the sku is not in the map at all. No null may escape this method;
     // getOrDefault handles the missing key in one call.
-    static int stockOf(HashMap<String, Integer> index, String sku) {
+    public static int stockOf(HashMap<String, Integer> index, String sku) {
         return -1; // TODO: read the count with getOrDefault
     }
 
     // Task 6 (linear search): the index of target in skus, or -1 when it is
     // not there. Walk the array from the front with one index.
-    static int findSku(String[] skus, String target) {
+    public static int findSku(String[] skus, String target) {
         return -2; // TODO: linear search returning the index or -1
     }
 
@@ -59,7 +60,7 @@ public class Inventory {
     // Keep low and high bounds, probe the middle, and narrow the half that
     // can still contain the target. Compare with compareTo:
     // negative means the middle word sorts before the target.
-    static int binaryFindSku(String[] sortedSkus, String target) {
+    public static int binaryFindSku(String[] sortedSkus, String target) {
         return -2; // TODO: binary search with low and high bounds, or -1 if absent
     }
 

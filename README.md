@@ -6,44 +6,27 @@ You start with plain arrays, move changing data into an `ArrayList`, index it wi
 
 ## Quick start
 
-The lab needs JDK 25 and Apache Maven 3.9 or later in the terminal. Troubleshooting shows how to check.
+1. Open the lab project. The files you edit are in `src/main/java/exercise/`; the checklist below names them.
+2. Select **Run Tests** before you change anything.
 
-1. Open the lab project you were given in VS Code, then open its integrated terminal: **Terminal > New Terminal**.
-2. Go into the project folder. Every command in this lab runs there:
-
-   ```
-   cd starter
-   ```
-
-3. Before the first test run, download the lab's libraries once. This needs the internet, and prints nothing when it works:
-
-   ```
-   mvn -q dependency:go-offline
-   ```
-
-4. Run the tests before you change anything:
-
-   ```
-   mvn -q -o test
-   ```
-
-   **All 7 tests fail at first. That is expected: the TODOs are not done yet.**
-   The output ends with `Tests run: 7, Failures: 7`, and every failure line starts with its task number, such as `Task 1:`.
-5. Work through the checklist below in order. After each task, run `mvn -q -o test` again and read the remaining `Task N:` lines.
-6. **You are finished when `mvn -q -o test` prints nothing at all.**
+   **All 7 visible tests fail at first. That is expected: the TODOs are not done yet.**
+   Every failure message starts with its task number, such as `Task 1:`.
+3. Work through the checklist below in order. After each task, select **Run Tests** again and read the remaining `Task N:` messages.
+4. **You are finished when all 7 visible tests pass.** Then select **Submit**.
+   Submitting also runs held-out tests you can't see.
 
 ```
-OPEN project -> cd starter -> setup (once) -> RUN tests: 7 fail (expected)
-  -> READ the "Task N:" lines -> EDIT the next TODO -> RUN tests again
+OPEN project -> RUN TESTS: 7 fail (expected)
+  -> READ the "Task N:" messages -> EDIT the next TODO -> RUN TESTS again
   -> arrays (Tasks 1-2) -> list (3) -> map (4-5) -> search (6-7)
-  -> STOP when the test run prints nothing
+  -> SUBMIT when all 7 visible tests pass
 ```
 
-In words: open the project, run the tests, read which tasks fail, complete one task's TODO, run the tests again, and stop when they print nothing.
+In words: open the project, run the tests, read which tasks fail, complete one task's TODO, run the tests again, and submit when they all pass.
 
 ## Checklist
 
-All seven tasks are in `starter/src/main/java/inventory/Inventory.java`. Each one is a method with a `TODO` comment.
+All seven tasks are in `src/main/java/exercise/Inventory.java`. Each one is a method with a `TODO` comment.
 
 - [ ] Task 1: `totalStock` (the enhanced for loop)
 - [ ] Task 2: `reverseInPlace` (two indexes on an array)
@@ -53,19 +36,20 @@ All seven tasks are in `starter/src/main/java/inventory/Inventory.java`. Each on
 - [ ] Task 6: `findSku` (linear search)
 - [ ] Task 7: `binaryFindSku` (binary search)
 
-A task is done when no failure line starts with its number.
-Edit only `Inventory.java`. The tests in `tests/inventory/`, the build file `starter/pom.xml` and `expected/test-summary.txt` stay as they are.
+A task is done when no failure message starts with its number.
+Edit only `Inventory.java`. The tests in `src/test/java/exercise/` are restored to their original state before your work is graded, so changes to them do not count. Leave the build file `pom.xml` as it is.
 
 ## Task steps
 
 Each method's `TODO` comment says exactly what it must return or change.
-The tests call every method with several inputs, including edge cases, and check only the results.
+Run Tests runs the visible tests. Submit also runs held-out tests you can't see: they try more inputs, including edge cases, so make each method correct for every input its comment describes, not only the ones the visible tests try.
+The tests check only the results.
 
 ### Task 1: totalStock
 
 1. Find the method `totalStock(int[] counts)` and its `TODO`.
 2. Sum the whole array with an enhanced for loop (`for (int count : counts)`). You need every element and no index.
-3. While it is wrong, you see lines such as `Task 1: totalStock({3, 0, 5}) ==> expected: <8> but was: <-1>`.
+3. While it is wrong, you see messages such as `Task 1: totalStock({3, 0, 5}) ==> expected: <8> but was: <-1>`.
 
 ### Task 2: reverseInPlace
 
@@ -110,7 +94,7 @@ Check your loop condition against a one-element array and an empty array. A wron
 2. Keep `low` and `high` bounds. Look at the middle element and compare it to the target with `compareTo`.
    A negative result means the middle sorts before the target, so the match can only be in the upper half; a positive result means the lower half.
 3. Narrow to the correct half by moving `low` or `high` past the middle. Stop with -1 when `low` passes `high`.
-4. While it is wrong, you see lines such as `Task 7: binaryFindSku(pantry, "milk")`.
+4. While it is wrong, you see messages such as `Task 7: binaryFindSku(pantry, "milk")`.
 5. Optional: see the halving. Set a breakpoint on the line that looks at the middle element, start the debugger, and watch `low` and `high` close in on `"milk"` in the eight-product pantry.
    It takes three looks instead of seven reads, and that gap grows every time the shelf doubles.
    If your editor cannot start the test in its debugger, debug `main` instead: its `binaryFindSku(skus, "tea")` call shows the same halving.
@@ -132,26 +116,28 @@ If you use an AI assistant, ask it to explain, not to answer.
 "Why does my binary search loop forever?" teaches you why the bounds must close; "write binaryFindSku for me" does not.
 Check any explanation with a test run or the debugger before you trust it.
 
-## Run the program
+## Run the program (optional)
 
-The tool prints one line per method. From `starter`:
+The tool prints one line per method. In a terminal, from the project folder:
 
 ```
-mvn -q -o compile
-java -cp target/classes inventory.Inventory
+mvn -q compile
+java -cp target/classes exercise.Inventory
 ```
 
-`expected/test-summary.txt` shows the finished result, including the eight lines the program prints.
+When every task is done, it prints:
+
+```
+Total: 28
+Reversed: 4 3 2 1
+Reorder: [candle, notebook]
+Index size: 5
+Stock of tea: 3
+Stock of soap: 0
+Find pen: 3
+Binary find tea: 4
+```
 
 ## Troubleshooting
 
-- **`there is no POM in this directory`.** The terminal is not in `starter`. From the lab folder, run `cd starter` and try again.
 - **`COMPILATION ERROR`.** Your code does not compile yet. Maven names the file, then `[line,column]`, then the problem. Fix that line and run the tests again.
-- **`mvn: command not found`, or `'mvn' is not recognized`.** Maven's `bin` folder is not on your `PATH`. Add it, then open a new terminal.
-- **`mvn -v` shows a Java version other than 25, or you see `release version 25 not supported`.** Maven uses the JDK named by `JAVA_HOME` when it is set, otherwise the `java` on your `PATH`. Set `JAVA_HOME` to your JDK 25 folder, or unset it, then open a new terminal. Check with `java -version` and `mvn -v`.
-- **`Cannot access central in offline mode`, or a missing artifact.** The setup step has not finished. Run `mvn -q dependency:go-offline` once while online.
-
-## Cleanup (optional)
-
-Maven writes only the `starter/target` folder, and Git already ignores it.
-To delete it, run `rm -rf target` from `starter`. In Windows PowerShell, run `Remove-Item -Recurse -Force target`.
